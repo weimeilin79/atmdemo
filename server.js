@@ -39,7 +39,7 @@ app.get('/', function (req, res) {
  	pool.query('SELECT * FROM ATMS;', function(err, res) {
 		  if (err) throw err
 		  console.log(res.rows);
-		  res.render('index.html', { pageCountMessage : res.rows});
+		  res.render('index.html', { pageCountMessage : res.json(res.rows)});
 	})
   
     
@@ -54,7 +54,7 @@ app.get('/atms', function (req, res) {
   	pool.query('SELECT * FROM ATMS;', function(err, res) {
 		  if (err) throw err
 		  console.log(res.rows);
-		  return res.json;
+		  return res.json(res.rows);
 		})
 });
 
