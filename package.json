@@ -1,7 +1,7 @@
 {
-  "name": "demo-map",
+  "name": "nodejs-ex",
   "version": "0.0.1",
-  "description": "Fuse 7 TP3 Demo for API",
+  "description": "Node.js sample app for OpenShift 3",
   "main": "server.js",
   "dependencies": {
     "chai": "^3.5.0",
@@ -10,7 +10,7 @@
     "express": "^4.13.4",
     "mocha": "^2.4.5",
     "morgan": "^1.7.0",
-    "pg": "^7.4.1 ",
+    "pg": "^7.4.1 "
     "object-assign":"4.1.0"
   },
   "engine": {
