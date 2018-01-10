@@ -2,6 +2,7 @@
 var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
+    pgdb 		= require('pg');
     
 Object.assign=require('object-assign')
 
@@ -19,8 +20,6 @@ var client = null;
 
 var initDb = function(callback) {
   
-
-  var pgdb = require('pg');
   if (pgdb == null) return;
 
    	client = pgdb.connect('postgresql://syndesis:CR4WSliXudeGlEsL@syndesis-db:5432/syndesis?sslmode=disable', function(err, conn) {
