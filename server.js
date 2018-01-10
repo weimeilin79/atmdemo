@@ -16,7 +16,7 @@ var config = {
   user: 'syndesis',
   database: 'sampledb',
   host: '172.17.0.4',
-  password: 'CR4WSliXudeGlEsL',
+  password: 'buCkvfx45X4NINmd',
   port: '5432'
 };
 
