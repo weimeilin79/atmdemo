@@ -43,7 +43,7 @@ app.get('/', function (req, res) {
 		  result = JSON.stringify(res.rows);
 		 	console.log(result);
 	})
-  res.render('index.html', { atmresults:result[0].lat} );
+  res.render('index.html', { atmresults:'TEST'} );
     
 });
 
