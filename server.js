@@ -18,7 +18,7 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 var client = null;  
 
 var initDb = function(callback) {
-  if (mongoURL == null) return;
+  
 
   var pgdb = require('pg');
   if (pgdb == null) return;
@@ -29,10 +29,6 @@ var initDb = function(callback) {
       return;
     }
 
-    db = conn;
-    
-
-    console.log('Connected to MongoDB at: %s', postgres);
   });
 };
 
