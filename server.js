@@ -40,7 +40,7 @@ app.get('/', function (req, res) {
  	pool.query('SELECT * FROM ATMS;', function(err, resp) {
 		  if (err) throw err
 		  //console.log(res.rows);
-		  result = JSON.stringify(res.rows);
+		  result = JSON.stringify(resp.rows);
 		 	console.log(result);
   		res.render('index.html', {atmresults:'result' } );
 	})
