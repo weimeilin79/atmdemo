@@ -71,7 +71,7 @@ function loadATMs() {
 
   var currentlat = map.center.lat();
   var currentlng = map.center.lng();
-  var result = JSON.parse('<%=atmresults%>');
+  var result = JSON.parse('<%-atmresults%>');
 
   loadEndpoints(result);
 }
