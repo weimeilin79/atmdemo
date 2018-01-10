@@ -26,7 +26,8 @@ var pool = null;
 var initDb = function(callback) {
   
   if (pgdb == null) return;
-		pool = new pg.Pool(config);
+	
+	pool = new pgdb.Pool(config);
 		//client.connect(function(err, conn) {
 	  //  if (err) {
 	  //    callback(err);
@@ -34,7 +35,6 @@ var initDb = function(callback) {
 	  //};
    
 
-  });
 };
 
 const results = [];
