@@ -17,7 +17,7 @@ var config = {
   user: 'sampledb',
   database: 'sampledb',
   host: POSTGRESURL,
-  password: 'CJbUpmwohwR4yYFs',
+  password: 'Erp0UpSIIB1McFwG',
   port: POSTGRESPORT
 };
 
