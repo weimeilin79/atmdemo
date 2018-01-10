@@ -50,8 +50,8 @@ app.get('/atms', function (req, res) {
 	  	
 		  if (err) throw err
 		  console.log(res.rows);
-
-		  res.json(res.rows);
+			
+		  return res.json;
 		})
     
     
