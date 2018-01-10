@@ -12,17 +12,26 @@ app.use(morgan('combined'))
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
-var client = null;  
+var config = {
+  user: 'syndesis',
+  database: 'postgres',
+  host: 'syndesis-db',
+  password: 'buCkvfx45X4NINmd',
+  port: '5432'
+};
+
+
+var pool = null;  
 
 var initDb = function(callback) {
   
   if (pgdb == null) return;
-		client = new pgdb.Client('postgres://syndesis:buCkvfx45X4NINmd@syndesis-db:5432/sampledb?sslmode=disable');
-		client.connect(function(err, conn) {
-	    if (err) {
-	      callback(err);
-	      return;
-	  };
+		pool = new pg.Pool(config);
+		//client.connect(function(err, conn) {
+	  //  if (err) {
+	  //    callback(err);
+	  //    return;
+	  //};
    
 
   });
@@ -32,23 +41,20 @@ const results = [];
 app.get('/atms', function (req, res) {
   	// try to initialize the db on every request if it's not already
   	// initialized.
-  	if (!client) {
+  	if (!pool) {
     	initDb(function(err){});
   	}
   	
-  	// SQL Query > Select Data
-    const query = client.query('SELECT * FROM ATMS;');
     
-    // Stream results back one row at a time
-    query.on('row', (row) => {
-      results.push(row);
-    });
+	  pool.query('SELECT * FROM ATMS;', function(err, res) {
+	  	
+		  if (err) throw err{
+		  	console.log(res.rows);
+		  }
+		  res.json(results);
+		})
     
-    // After all data is returned, close connection and return results
-    query.on('end', () => {
-      done();
-      return res.json(results);
-    });
+    
 });
 
 // error handling
