@@ -37,7 +37,7 @@ app.get('/', function (req, res) {
     	initDb(function(err){});
   }
   var result = null;
- 	pool.query('SELECT * FROM ATMS;', function(err, res) {
+ 	pool.query('SELECT * FROM ATMS;', function(err, resp) {
 		  if (err) throw err
 		  //console.log(res.rows);
 		  result = JSON.stringify(res.rows);
