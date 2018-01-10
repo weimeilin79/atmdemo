@@ -10,14 +10,15 @@ app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
-    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
-
+    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
+		POSTGRESURL = process.env.SYNDESIS_DB_SERVICE_HOST|| '0.0.0.0',
+		POSTGRESPORT = SYNDESIS_DB_SERVICE_PORT|| 5432;
 var config = {
-  user: 'syndesis',
+  user: 'sampledb',
   database: 'sampledb',
-  host: '172.17.0.4',
+  host: POSTGRESURL,
   password: 'buCkvfx45X4NINmd',
-  port: '5432'
+  port: POSTGRESPORT
 };
 
 
