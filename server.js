@@ -27,35 +27,22 @@ var pool = null;
 var initDb = function(callback) {
   
   if (pgdb == null) return;
-	
 	pool = new pgdb.Pool(config);
-		//client.connect(function(err, conn) {
-	  //  if (err) {
-	  //    callback(err);
-	  //    return;
-	  //};
-   
+	
 
 };
 
 const results = [];
 app.get('/atms', function (req, res) {
-  	// try to initialize the db on every request if it's not already
-  	// initialized.
+  	
   	if (!pool) {
     	initDb(function(err){});
   	}
-  	
-    
-	  pool.query('SELECT * FROM ATMS;', function(err, res) {
-	  	
+  	pool.query('SELECT * FROM ATMS;', function(err, res) {
 		  if (err) throw err
 		  console.log(res.rows);
-			
 		  return res.json;
 		})
-    
-    
 });
 
 // error handling
