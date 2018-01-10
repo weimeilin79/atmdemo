@@ -21,12 +21,13 @@ var client = null;
 var initDb = function(callback) {
   
   if (pgdb == null) return;
-
-   	client = pgdb.connect('postgresql://syndesis:CR4WSliXudeGlEsL@syndesis-db:5432/syndesis?sslmode=disable', function(err, conn) {
-    if (err) {
-      callback(err);
-      return;
-    }
+		client = new pg.Client('postgresql://syndesis:CR4WSliXudeGlEsL@syndesis-db:5432/syndesis?sslmode=disable');
+		client.connect(function(err, conn) {
+	    if (err) {
+	      callback(err);
+	      return;
+	  };
+   
 
   });
 };
