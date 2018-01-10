@@ -35,13 +35,14 @@ var initDb = function(callback) {
 app.get('/', function (req, res) {
   if (!pool) {
     	initDb(function(err){});
-  }
+  	}
  	pool.query('SELECT * FROM ATMS;', function(err, res) {
 		  if (err) throw err
 		  console.log(res.rows);
-		  res.render('index.html', { pageCountMessage : null});
+		  return res.json;
+	
 	})
-  
+  res.render('index.html', { pageCountMessage : null});
     
 });
 
