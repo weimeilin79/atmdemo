@@ -17,7 +17,7 @@ var client = null;
 var initDb = function(callback) {
   
   if (pgdb == null) return;
-		client = new pgdb.Client('postgresql://syndesis:CR4WSliXudeGlEsL@syndesis-db:5432/syndesis?sslmode=disable');
+		client = new pgdb.Client('postgresql://syndesis:CR4WSliXudeGlEsL@syndesis-db:5432/sampledb?sslmode=disable');
 		client.connect(function(err, conn) {
 	    if (err) {
 	      callback(err);
@@ -58,7 +58,7 @@ app.use(function(err, req, res, next){
 });
 
 initDb(function(err){
-  console.log('Error connecting to Mongo. Message:\n'+err);
+  console.log('Error connecting to Database. Message:\n'+err);
 });
 
 app.listen(port, ip);
