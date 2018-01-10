@@ -6,38 +6,10 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  
-
-  
-  
-  
-
-  
-
   <script type="text/javascript" src="/js/lib/dummy.js"></script>
-
-  
-
-  
-
-  
-
-  
-    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
-  
-
-  
-    
-      <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
-    
-  
-    
-      <script type="text/javascript" src="https://maps.google.com/maps/api/js"></script>
-    
-  
-
+  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script type="text/javascript" src="https://maps.google.com/maps/api/js"></script>
   <style type="text/css">
     #map {
   width: 100%;
@@ -47,13 +19,9 @@
 
   </style>
 
-  <title>PSD2-MAP</title>
+  <title>Fuse TP3 Demo</title>
 
   
-    
-
-
-
 
 <script type='text/javascript'>//<![CDATA[
 
@@ -103,9 +71,6 @@ function loadATMs() {
 
   var currentlat = map.center.lat();
   var currentlng = map.center.lng();
-  // var myURL = document.getElementById('myFuseEndpoint').value);
-  //alert("");
-
   var result = JSON.parse('[{ "address":"73 Wandsworth High Street, Wandsworth", "lat":51.4565624, "long":-0.1925085},{"address":"21 Kings Mall, King Street, Hammersmith", "lat":51.492896, "long":-0.2290796}]');
 
   loadEndpoints(result);
@@ -138,10 +103,9 @@ function loadATMs() {
 <div id="map"></div>
 <div id="database">
 <h2>Request information</h2>
-                <p>Page view count:
-                
-                   <span class="code" id="count-value"><%=atmresults%></span>
-                   </p>
+<p>Page view count:
+	<span class="code" id="atmresults"><%=atmresults%></span>
+</p>
                     
                 
 </div>
