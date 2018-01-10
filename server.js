@@ -39,7 +39,8 @@ app.get('/', function (req, res) {
  	pool.query('SELECT * FROM ATMS;', function(err, res) {
 		  if (err) throw err
 		  console.log(res.rows);
-		  res.render('index.html', { pageCountMessage : JSON.stringify(res.rows)});
+		  var result = JSON.stringify(res.rows);
+		  res.render('index.html', { pageCountMessage : result});
 	})
   
     
