@@ -35,8 +35,7 @@ app.get('/atms', function (req, res) {
   	if (!client) {
     	initDb(function(err){});
   	}
- 
-
+  	
   	// SQL Query > Select Data
     const query = client.query('SELECT * FROM ATMS;');
     
