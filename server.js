@@ -15,7 +15,7 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 var config = {
   user: 'syndesis',
   database: 'sampledb',
-  host: 'syndesis-db',
+  host: '172.17.0.4',
   password: 'CR4WSliXudeGlEsL',
   port: '5432'
 };
