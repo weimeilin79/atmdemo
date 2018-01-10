@@ -52,7 +52,7 @@ function loadEndpoints(result) {
 
   for (i = 0; i < result.length; i++) {
     marker = new google.maps.Marker({
-      position: new google.maps.LatLng(result[i].lat, result[i].long),
+      position: new google.maps.LatLng(result[i].lat, result[i].lng),
       map: map
     });
 
@@ -71,7 +71,7 @@ function loadATMs() {
 
   var currentlat = map.center.lat();
   var currentlng = map.center.lng();
-  var result = JSON.parse('[{ "address":"73 Wandsworth High Street, Wandsworth", "lat":51.4565624, "long":-0.1925085},{"address":"21 Kings Mall, King Street, Hammersmith", "lat":51.492896, "long":-0.2290796}]');
+  var result = JSON.parse('[{ "address":"73 Wandsworth High Street, Wandsworth", "lat":51.4565624, "lng":-0.1925085},{"address":"21 Kings Mall, King Street, Hammersmith", "lat":51.492896, "lng":-0.2290796}]');
 
   loadEndpoints(result);
 }
