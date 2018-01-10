@@ -35,7 +35,7 @@ var initDb = function(callback) {
 app.get('/', function (req, res) {
   if (!pool) {
     	initDb(function(err){});
-  	}
+  }
   var result = null;
  	pool.query('SELECT * FROM ATMS;', function(err, res) {
 		  if (err) throw err
@@ -43,7 +43,7 @@ app.get('/', function (req, res) {
 		  result = JSON.stringify(res.rows);
 		 	console.log(result);
 	})
-  res.render('index.html', { pageCountMessage : result});
+  res.render('index.html', { atmresults : result});
     
 });
 
