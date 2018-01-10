@@ -19,10 +19,7 @@
 
   </style>
 
-  <title>Fuse TP3 Demo</title>
-
-  
-
+<title>Fuse TP3 Demo</title>
 <script type='text/javascript'>//<![CDATA[
 
 var locations;
@@ -44,8 +41,6 @@ function initMap() {
 
 
 function loadEndpoints(result) {
-
-
   var infowindow = new google.maps.InfoWindow({});
 
   var marker, i;
@@ -84,16 +79,10 @@ function loadATMs() {
 </head>
 
 <body>
-  Fuse Online Scenario Two - API and Open Banking
-<br/>
+	<h2>Fuse Online Scenario Two - API and Open Banking</h2>
 <br/>
 <div id="inputdiv">
-
-  My Fuse Integration Endpoint:
-  <input type="mysource" id="myFuseEndpoint" />
-  <br/>
-  <br/>
-  <button onclick="loadATMs()">Refresh</button>
+  <button onclick="loadATMs()">Load ATMs</button>
 </div>
 <br/>
 <br/>
@@ -101,20 +90,7 @@ function loadATMs() {
 <br/>
 <br/>
 <div id="map"></div>
-<div id="database">
-<h2>Request information</h2>
-<p>Page view count:
-	<span class="code" id="atmresults">
-		<%=atmresults%>
-		<BR/>
-		NEXT....up
-		<BR/>
-		<%=atmresults[0].lat%>
-	</span>
-</p>
-                    
-                
-</div>
+
 <!-- Replace the value of the key parameter with your own API key. -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7HlUiOSju2W3n5ysuKPS6UuWqQIRC7hU&callback=initMap" async defer></script>
 
