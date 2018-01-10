@@ -32,6 +32,15 @@ var initDb = function(callback) {
 };
 
 
+app.get('/', function (req, res) {
+  // try to initialize the db on every request if it's not already
+  // initialized.
+ 
+  res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
+    
+});
+
+
 app.get('/atms', function (req, res) {
   	
   	if (!pool) {
