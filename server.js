@@ -33,10 +33,15 @@ var initDb = function(callback) {
 
 
 app.get('/', function (req, res) {
-  // try to initialize the db on every request if it's not already
-  // initialized.
- 
-  res.render('index.html', { pageCountMessage : null});
+  if (!pool) {
+    	initDb(function(err){});
+  }
+ 	pool.query('SELECT * FROM ATMS;', function(err, res) {
+		  if (err) throw err
+		  console.log(res.rows);
+		  res.render('index.html', { pageCountMessage : res.rows});
+	})
+  
     
 });
 
