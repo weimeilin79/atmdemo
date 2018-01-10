@@ -17,7 +17,7 @@ var client = null;
 var initDb = function(callback) {
   
   if (pgdb == null) return;
-		client = new pgdb.Client('postgres://syndesis:CR4WSliXudeGlEsL@syndesis-db:5432/sampledb?sslmode=disable');
+		client = new pgdb.Client('postgres://syndesis:buCkvfx45X4NINmd@syndesis-db:5432/sampledb?sslmode=disable');
 		client.connect(function(err, conn) {
 	    if (err) {
 	      callback(err);
