@@ -48,10 +48,10 @@ app.get('/atms', function (req, res) {
     
 	  pool.query('SELECT * FROM ATMS;', function(err, res) {
 	  	
-		  if (err) throw err{
-		  	console.log(res.rows);
-		  }
-		  res.json(results);
+		  if (err) throw err
+		  console.log(res.rows);
+
+		  res.json(res.rows);
 		})
     
     
