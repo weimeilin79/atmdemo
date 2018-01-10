@@ -41,9 +41,10 @@ app.get('/', function (req, res) {
 		  if (err) throw err
 		  //console.log(res.rows);
 		  result = JSON.stringify(res.rows);
-		 	console.log(result);
+		 
 	})
-  res.render('index.html', { atmresults:result} );
+	console.log(result);
+  res.render('index.html', { atmresults:'result' } );
     
 });
 
