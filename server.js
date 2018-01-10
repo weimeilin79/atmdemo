@@ -11,7 +11,7 @@ app.use(morgan('combined'))
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
-		POSTGRESURL = process.env.SYNDESIS_DB_SERVICE_HOST|| '0.0.0.0',
+		POSTGRESURL = process.env.SYNDESIS_DB_SERVICE_HOST|| '172.17.0.4',
 		POSTGRESPORT = process.env.SYNDESIS_DB_SERVICE_PORT|| 5432;
 var config = {
   user: 'sampledb',
