@@ -11,13 +11,16 @@ app.use(morgan('combined'))
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
-		POSTGRESURL = process.env.SYNDESIS_DB_SERVICE_HOST|| '172.17.0.4',
-		POSTGRESPORT = process.env.SYNDESIS_DB_SERVICE_PORT|| 5432;
+		POSTGRESHOST = process.env.POSTGRES_DB_SERVICE_HOST|| '172.17.0.4',
+		POSTGRESUSER = process.env.POSTGRES_DB_SERVICE_USER|| 'sampledb',
+		POSTGRESDATABASE = process.env.POSTGRES_DB_SERVICE_DATABASE|| 'sampledb',
+		POSTGRESPWD = process.env.POSTGRES_DB_SERVICE_PWD|| 'Erp0UpSIIB1McFwG',
+		POSTGRESPORT = process.env.POSTGRES_DB_SERVICE_PORT|| 5432;
 var config = {
-  user: 'sampledb',
-  database: 'sampledb',
+  user: POSTGRESUSER,
+  database: POSTGRESDATABASE,
   host: POSTGRESURL,
-  password: 'Erp0UpSIIB1McFwG',
+  password: POSTGRESPWD,
   port: POSTGRESPORT
 };
 
@@ -39,7 +42,7 @@ app.get('/', function (req, res) {
   var result = null;
  	pool.query('SELECT address ,lat ,lng FROM ATMS;', function(err, resp) {
 		  if (err) throw err
-		  //console.log(res.rows);
+		  
 		  result = JSON.stringify(resp.rows);
 		 	console.log(result);
   		res.render('index.html', {atmresults:result } );
@@ -50,10 +53,10 @@ app.get('/', function (req, res) {
 
 
 app.get('/atms', function (req, res) {
-  	
   	if (!pool) {
     	initDb(function(err){});
   	}
+  	
   	pool.query('SELECT * FROM ATMS;', function(err, res) {
 		  if (err) throw err
 		  console.log(res.rows);
