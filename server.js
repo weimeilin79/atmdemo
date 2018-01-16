@@ -19,7 +19,7 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 var config = {
   user: POSTGRESUSER,
   database: POSTGRESDATABASE,
-  host: POSTGRESURL,
+  host: POSTGRESHOST,
   password: POSTGRESPWD,
   port: POSTGRESPORT
 };
